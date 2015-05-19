@@ -3,6 +3,9 @@ package com.sergeybudkov;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Created by sergeybp on 16.05.15.
+ */
 public class Terms {
 
     public static class TermWithArgs extends Term {
