@@ -33,21 +33,23 @@ public class Main {
         Parser parser;
         String[] argument = s.split(",");
         ArrayList<Expr> added = new ArrayList<Expr>();
-        for (int i = 0; i < argument.length - 1; i++) {
+        for (int i = 0; i < argument.length -1; i++) {
             parser = new Parser(argument[i]);
             added.add(parser.parse());
         }
         String[] argTask = argument[argument.length - 1].split("\\|-");
         Expr alpha = (new Parser(argTask[0])).parse();
         ArrayList<Expr> answer = new ArrayList<Expr>();
-        if (in.hasNext())
-            s = in.next();
-
+        ArrayList<String> tmp = new ArrayList<String>();
         while (in.hasNext()) {
-            parser = new Parser(s);
-            expressions.add(parser.parse());
             s = in.next();
+            tmp.add(s);
         }
+        for(int i = 0 ; i < tmp.size();i++) {
+            parser = new Parser(tmp.get(i));
+            expressions.add(parser.parse());
+        }
+
         boolean isgood = true;
         int i = 0;
         for (Expr expr : expressions) {
